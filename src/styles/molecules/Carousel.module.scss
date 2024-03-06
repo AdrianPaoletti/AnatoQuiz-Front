@@ -1,0 +1,57 @@
+@use "../settings/spacing";
+@use "../settings/sizes";
+@use "../settings/colors";
+
+.carousel {
+  &__slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    position: relative;
+    height: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+    min-width: calc(var(--layout-card-width) - 2 * var(--layout-card-padding));
+    margin-right: var(--layout-card-padding);
+
+    img {
+      align-self: center;
+      margin-bottom: spacing.$md;
+      margin-top: auto;
+      width: 100vw;
+
+      @media (min-width: sizes.$mobile-md) {
+        width: 18.75rem;
+      }
+    }
+  }
+
+  &__stepper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__step {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: colors.$input-bg;
+    border-radius: 5rem;
+
+    &:not(:last-child) {
+      margin-right: spacing.$tiny;
+    }
+
+    &--active {
+      background-color: colors.$blue;
+    }
+  }
+}

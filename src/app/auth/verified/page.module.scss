@@ -1,0 +1,22 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+
+.user-verified {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__title {
+    font: typography.$sm-h200-bold;
+    margin-bottom: spacing.$tiny;
+  }
+
+  &__subtitle {
+    font: typography.$b200-bold;
+    margin-bottom: spacing.$md;
+  }
+
+  &__icon {
+    max-width: 17rem;
+  }
+}

@@ -1,0 +1,7 @@
+@use "../settings/spacing";
+
+.container {
+  padding: var(--layout-card-padding);
+  margin-right: auto;
+  margin-left: auto;
+}

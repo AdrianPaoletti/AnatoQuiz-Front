@@ -1,0 +1,30 @@
+$_primary-white: #fff;
+$_primary-black: #040707;
+$_primary-gray: #9d9d9d;
+$_primary-grayLight: #b1b1b1;
+$_primary-grayLighter: #efefef;
+$_secondary-error: #ff6961;
+$_secondary-errorLight: #ffebe9;
+$_secondary-blue: #2255a5;
+$_primary-blueDark: #29416c;
+$secondary-orange: #f17152;
+$secondary-orangeLight: #f2a39f;
+$_secondary-pink: #f3c4da;
+
+$white: $_primary-white;
+$black: $_primary-black;
+$pink: $_secondary-pink;
+$blue: $_secondary-blue;
+$disabled: $_primary-grayLight;
+$error: $_secondary-error;
+
+$link-color: $_secondary-blue;
+
+$cta-primary: $_primary-blueDark;
+$cta-secondary: #e7e7e7;
+$cta-disabled: $_primary-grayLighter;
+
+$input-bg: $_primary-grayLighter;
+$input-color: $_primary-gray;
+
+$alert-error: $_secondary-errorLight;

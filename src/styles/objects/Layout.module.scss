@@ -1,0 +1,63 @@
+@use "../settings/sizes";
+@use "../settings/border";
+@use "../settings/colors";
+@use "../settings/spacing";
+
+$_layout-max-height: 56.25rem;
+$_layout-card-height: 100vh;
+$_layout-padding: spacing.$xlg;
+
+.layout {
+  max-width: sizes.$desktop;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+
+  @media (min-width: sizes.$mobile-md) {
+    padding: $_layout-padding 0;
+  }
+
+  &__card {
+    height: $_layout-card-height;
+    width: var(--layout-card-width);
+    padding: var(--layout-card-padding);
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    overflow: auto;
+    box-shadow: 0 0.75rem 1.5rem 0 rgba(0, 0, 0, 0.08);
+    background-color: colors.$white;
+    z-index: 1;
+
+    > *:first-child {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    @media (min-width: sizes.$mobile-md) {
+      max-height: $_layout-max-height;
+      border-radius: border.$radius-default;
+      height: calc($_layout-card-height - ($_layout-padding * 2));
+    }
+  }
+
+  &__bracket {
+    position: fixed;
+    display: none;
+
+    &--left {
+      right: 50%;
+      margin-right: 10rem;
+    }
+
+    &--right {
+      left: 50%;
+      margin-left: 9.68rem;
+    }
+
+    @media (min-width: sizes.$mobile-md) {
+      display: inline-block;
+    }
+  }
+}

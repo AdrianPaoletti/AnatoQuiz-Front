@@ -1,0 +1,24 @@
+@use "../settings/colors";
+@use "../settings/spacing";
+@use "../settings/border";
+@use "../settings/typography";
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: border.$radius-default;
+  padding: spacing.$xs spacing.$sm;
+  margin-bottom: spacing.$xxs;
+
+  &--error {
+    border: 1px solid colors.$error;
+    background-color: colors.$alert-error;
+  }
+
+  &__text {
+    font: typography.$b200-regular;
+    padding-right: spacing.$xs;
+  }
+}

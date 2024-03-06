@@ -1,0 +1,13 @@
+@use "../settings/colors";
+
+:export {
+  primaryWhite: colors.$white;
+  primaryBlack: colors.$black;
+  secondaryBlue: colors.$blue;
+  inputColor: colors.$input-color;
+  ctaPrimary: colors.$cta-primary;
+  secondaryOrange: colors.$secondary-orange;
+  secondaryOrangeLight: colors.$secondary-orangeLight;
+  secondaryPink: colors.$pink;
+  error: colors.$error;
+}

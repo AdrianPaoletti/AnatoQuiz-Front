@@ -1,0 +1,27 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+
+.onboarding {
+  justify-content: space-between;
+
+  &__title {
+    font: typography.$sm-h200-bold;
+    margin-bottom: spacing.$tiny;
+  }
+
+  &__subtitle {
+    font: typography.$b200-bold;
+    margin-bottom: spacing.$md;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1;
+
+    > *:first-child {
+      margin-bottom: spacing.$tiny;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@use "../settings/border";
+@use "../settings/colors";
+@use "../settings/spacing";
+@use "../settings/typography";
+
+.input {
+  background: colors.$input-bg;
+  border-radius: border.$radius-default;
+  padding: spacing.$tiny spacing.$sm;
+  border: 1px solid transparent;
+  position: relative;
+
+  &:focus-within,
+  &:hover {
+    border: 1px solid colors.$input-color;
+  }
+
+  &--error,
+  &--error:focus-within,
+  &--error:hover {
+    border: 1px solid colors.$error;
+
+    .input {
+      &__label {
+        color: colors.$error;
+      }
+
+      &__field {
+        padding-right: spacing.$md;
+
+        &[name="password"],
+        &[name="repeat-password"] {
+          padding-right: spacing.$xxl;
+        }
+      }
+    }
+  }
+
+  &__label {
+    font: typography.$b100-regular;
+    display: block;
+    color: colors.$input-color;
+  }
+
+  &__field {
+    font: typography.$b200-regular;
+    display: block;
+    width: 100%;
+    padding: 0;
+    background: colors.$input-bg;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &[type="number"] {
+      appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        margin: 0;
+        appearance: none;
+      }
+    }
+
+    &[name="password"],
+    &[name="repeat-password"] {
+      padding-right: spacing.$md;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    padding: spacing.$tiny spacing.$xxs;
+  }
+}

@@ -1,0 +1,47 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__fields {
+    margin-bottom: spacing.$sm;
+
+    > * {
+      &:not(:last-child) {
+        margin-bottom: spacing.$tiny;
+      }
+
+      &:last-child {
+        margin-top: spacing.$xxs;
+      }
+    }
+  }
+
+  &__login {
+    font: typography.$b200-regular;
+    text-align: center;
+    color: colors.$blue;
+    margin-top: auto;
+    margin-bottom: spacing.$md;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &__or {
+    font: typography.$b300-regular;
+    color: colors.$input-color;
+    line-height: 0;
+    margin: spacing.$sm 0;
+    border-bottom: 1px solid colors.$input-color;
+    text-align: center;
+
+    span {
+      background-color: colors.$white;
+      padding: 0 spacing.$sm;
+    }
+  }
+}

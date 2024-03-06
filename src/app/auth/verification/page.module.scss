@@ -1,0 +1,21 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+
+.email-verification {
+  justify-content: space-between;
+  position: relative;
+
+  &__title {
+    font: typography.$sm-h200-bold;
+    margin-bottom: spacing.$tiny;
+  }
+
+  &__subtitle {
+    font: typography.$b200-bold;
+    margin-bottom: spacing.$md;
+
+    span {
+      margin-left: spacing.$tiny;
+    }
+  }
+}

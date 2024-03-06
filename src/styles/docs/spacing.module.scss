@@ -1,0 +1,6 @@
+@use "../settings/spacing";
+
+:export {
+  xTiny: spacing.$xtiny;
+  tiny: spacing.$tiny;
+}

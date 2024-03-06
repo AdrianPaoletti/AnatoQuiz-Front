@@ -1,0 +1,30 @@
+@use "../settings/typography";
+@use "../settings/sizes";
+@use "../settings/spacing";
+
+:root {
+  --layout-card-width: 100vw;
+  --layout-card-padding: #{spacing.$sm};
+  // --container-padding: #{spacing.$sm};
+
+  @media (min-width: sizes.$mobile-md) {
+    --layout-card-width: #{sizes.$mobile};
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font: typography.$b500-regular;
+  font-family: #{typography.$font-family};
+
+  * {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

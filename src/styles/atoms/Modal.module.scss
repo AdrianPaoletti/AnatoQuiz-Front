@@ -1,0 +1,13 @@
+@use "../settings/colors";
+@use "../settings/border";
+
+.modal {
+  background-color: colors.$white;
+  border-radius: border.$radius-default;
+  position: absolute;
+
+  &::backdrop {
+    background-color: colors.$black;
+    opacity: 0.7;
+  }
+}
