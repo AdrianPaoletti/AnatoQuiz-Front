@@ -7,7 +7,7 @@ export interface RegisterBody {
   email: string;
 }
 
-const api = process.env.NEXT_PUBLIC_API;
+const api = process.env.NEXT_PUBLIC_LOCAL;
 
 export async function postRegister(body: RegisterBody): Promise<void> {
   return axios.post(`${api}/user/signup`, body);

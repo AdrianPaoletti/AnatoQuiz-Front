@@ -6,7 +6,7 @@ export interface LoginParams {
   password: string;
 }
 
-const api = process.env.NEXT_PUBLIC_API;
+const api = process.env.NEXT_PUBLIC_LOCAL;
 
 export async function getLogin(params: LoginParams): Promise<string> {
   return axios.get(`${api}/user/login`, { params });

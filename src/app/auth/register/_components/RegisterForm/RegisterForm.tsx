@@ -50,10 +50,10 @@ export function RegisterForm() {
 
       return getGoogleUserInfo(token);
     },
-    select: ({ email, name: username, picture: password }) => ({
+    select: ({ email, name: username, picture }) => ({
       email,
       username,
-      password,
+      password: uuid(),
     }),
     enabled: false,
     retry: false,
