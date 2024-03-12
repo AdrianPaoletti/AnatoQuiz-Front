@@ -3,22 +3,63 @@
 @use "../settings/border";
 @use "../settings/typography";
 
+$_animation-duration: 0.08s;
+
 .alert {
+  visibility: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid transparent;
   border-radius: border.$radius-default;
   padding: spacing.$xs spacing.$sm;
-  margin-bottom: spacing.$xxs;
+  position: absolute;
+  top: spacing.$sm;
+  left: spacing.$sm;
+  right: spacing.$sm;
+  min-height: 4rem;
 
   &--error {
     border: 1px solid colors.$error;
     background-color: colors.$alert-error;
   }
 
+  &--open {
+    visibility: visible;
+    animation: fadeIn $_animation-duration ease-in;
+  }
+
+  &--close {
+    visibility: visible;
+    opacity: 0;
+    animation: fadeOut $_animation-duration ease-out;
+  }
+
   &__text {
     font: typography.$b200-regular;
     padding-right: spacing.$xs;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9, 0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.9, 0.9);
   }
 }
