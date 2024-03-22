@@ -1,6 +1,9 @@
 export interface IConfigData {
-  id: "lesson" | "questions" | "time";
+  id: "lessons" | "subjects" | "questions" | "time";
   title: string;
   description: string;
-  data: string[];
+  data: {
+    value: string;
+    selected: boolean;
+  }[];
 }
