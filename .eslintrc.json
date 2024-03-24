@@ -158,8 +158,7 @@
           { "checkArrowFunctions": false }
         ],
         // "@typescript-eslint/sort-type-union-intersection-members": ["error"],
-        "@typescript-eslint/switch-exhaustiveness-check": ["error"],
-        "folders/match-regex": [2, "^[a-z-]+$", "/src/"]
+        "@typescript-eslint/switch-exhaustiveness-check": ["error"]
       },
       "parserOptions": {
         "project": ["./tsconfig.json"]

@@ -1,12 +1,23 @@
 import { getGoogleUserInfo } from "@anatoquiz/src/services/auth/getGoogleUserInfo";
-import { postRegister as postRegisterFetch } from "@anatoquiz/src/services/auth/postRegister";
+import {
+  putRegister as putRegisterFetch,
+  RegisterBody,
+} from "@anatoquiz/src/services/auth/putRegister";
 import { AuthFormError } from "@anatoquiz/src/types/authTypes";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {
+  UseMutateFunction,
+  useMutation,
+  useQuery,
+} from "@tanstack/react-query";
 import router from "next/router";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 
-import { UserRegisterForm } from "./types";
+interface UserRegisterForm {
+  error: AuthFormError;
+  setError: Dispatch<SetStateAction<AuthFormError>>;
+  putRegister: UseMutateFunction<void, Error, RegisterBody, unknown>;
+}
 
 export function useRegisterForm(): UserRegisterForm {
   const [error, setError] = useState<AuthFormError>({
@@ -14,9 +25,9 @@ export function useRegisterForm(): UserRegisterForm {
     text: "",
   });
 
-  const { mutate: postRegister } = useMutation({
+  const { mutate: putRegister } = useMutation({
     mutationKey: ["user"],
-    mutationFn: postRegisterFetch,
+    mutationFn: putRegisterFetch,
     onError: () => {
       setError({
         id: "",
@@ -58,9 +69,9 @@ export function useRegisterForm(): UserRegisterForm {
 
     if (isFetched && googleData) {
       const { username, password, email } = googleData;
-      postRegister({ username, password, email, id: uuid() });
+      putRegister({ username, password, email, id: uuid() });
     }
-  }, [refetch, googleData, isFetched, postRegister]);
+  }, [refetch, googleData, isFetched, putRegister]);
 
-  return { error, setError, postRegister };
+  return { error, setError, putRegister };
 }

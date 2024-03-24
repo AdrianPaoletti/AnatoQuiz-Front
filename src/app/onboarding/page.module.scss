@@ -7,11 +7,13 @@
   &__title {
     font: typography.$sm-h200-bold;
     margin-bottom: spacing.$tiny;
+    text-align: center;
   }
 
   &__subtitle {
     font: typography.$b200-bold;
     margin-bottom: spacing.$md;
+    text-align: center;
   }
 
   &__buttons {
@@ -21,7 +23,7 @@
     flex: 1;
 
     > *:first-child {
-      margin-bottom: spacing.$tiny;
+      margin-bottom: spacing.$xxs;
     }
   }
 }
