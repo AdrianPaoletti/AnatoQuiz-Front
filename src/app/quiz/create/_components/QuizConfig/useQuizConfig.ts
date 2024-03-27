@@ -1,22 +1,15 @@
 import { getQuestionsFetch } from "@anatoquiz/src/services/quiz/getQuestions";
 import { IQuestionsResponse } from "@anatoquiz/src/types/questionsType";
-import {
-  QueryObserverResult,
-  RefetchOptions,
-  useQuery,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
-import { IDataQuiz, IParamsGetQuestions } from "./type.interface";
+import {
+  IDataQuiz,
+  IParamsGetQuestions,
+  IUseQuizConfig,
+} from "./type.interface";
 
-interface IUseQuizConfig {
-  dataQuiz: IDataQuiz;
-  setDataQuiz: Dispatch<SetStateAction<IDataQuiz>>;
-  refetch: (
-    options?: RefetchOptions | undefined,
-  ) => Promise<QueryObserverResult<IQuestionsResponse, Error>>;
-}
 export function useQuizConfig(): IUseQuizConfig {
   const router = useRouter();
   const [dataQuiz, setDataQuiz] = useState<IDataQuiz>({

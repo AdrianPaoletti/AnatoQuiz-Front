@@ -1,3 +1,7 @@
+import { IQuestionsResponse } from "@anatoquiz/src/types/questionsType";
+import { QueryObserverResult, RefetchOptions } from "@tanstack/react-query";
+import { Dispatch, SetStateAction } from "react";
+
 export interface IKeysConfig {
   lessons: string;
   subjects: string;
@@ -28,4 +32,12 @@ export interface IParamsGetQuestions {
   lessons: string;
   subjects?: string;
   questionsNumber: number;
+}
+
+export interface IUseQuizConfig {
+  dataQuiz: IDataQuiz;
+  setDataQuiz: Dispatch<SetStateAction<IDataQuiz>>;
+  refetch: (
+    options?: RefetchOptions | undefined,
+  ) => Promise<QueryObserverResult<IQuestionsResponse, Error>>;
 }
