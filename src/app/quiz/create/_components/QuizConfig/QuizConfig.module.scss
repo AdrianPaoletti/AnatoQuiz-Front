@@ -26,60 +26,6 @@
         flex-wrap: wrap;
     }
 
-    &__chip {
-        flex-grow:1;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        background-color: transparent;
-        border: 1.5px solid;
-        border-radius: border.$radius-xl;
-        transition: all 0.2s;
-        padding: spacing.$xtiny spacing.$xs;
-        font: typography.$b200-regular;
-        margin: spacing.$xtiny;
-        min-width: 60px;
-
-        &--lessons {
-            border-color: colors.$blue;
-           
-            &.quiz-config__chip--selected {
-                background-color: colors.$blue;
-            }
-        }
-        &--subjects {
-            border-color: colors.$orange;
-           
-            &.quiz-config__chip--selected {
-                background-color: colors.$orange;
-            }
-        }
-        
-        &--questions {
-            border-color: colors.$secondary-orangeLight;
-           
-            &.quiz-config__chip--selected {
-                background-color: colors.$secondary-orangeLight;
-            }
-
-        }
-
-        &--time {
-            border-color: colors.$pink;
-            
-            &.quiz-config__chip--selected {
-                background-color: colors.$pink;
-            }
-        }
-
-        &--selected {
-            color: colors.$white;
-            font: typography.$b200-bold;
-        }
-
-    }
-
     &__footer {
         margin-top: auto;
     }

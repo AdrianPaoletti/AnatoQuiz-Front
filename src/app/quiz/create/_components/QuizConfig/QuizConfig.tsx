@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@anatoquiz/src/styles/atoms/Button";
-import { classNames } from "@anatoquiz/src/styles/shared/classNames";
+import { Chip } from "@anatoquiz/src/styles/atoms/Chip";
 
 import { configData } from "./configData";
 import { IData, IKeysConfig } from "./type.interface";
@@ -51,25 +51,20 @@ export function QuizConfig() {
 
   return (
     <section className={styles["quiz-config"]}>
-      {configData.map(({ id, title, description, data }) => (
+      {configData.map(({ id, title, description, color, data }) => (
         <article key={id} className={styles["quiz-config__content"]}>
           <h2 className={styles["quiz-config__title"]}>{title}</h2>
 
           <p className={styles["quiz-config__description"]}>{description}</p>
           <div className={styles["quiz-config__chips-container"]}>
-            {data.map((item, index) => (
-              <button
-                className={classNames(
-                  styles["quiz-config__chip"],
-                  styles[`quiz-config__chip--${id}`],
-                  { [styles[`quiz-config__chip--selected`]]: item.selected },
-                )}
-                type="button"
-                key={index}
-                onClick={() => onSelect(id, item, data)}
-              >
-                {item.value}
-              </button>
+            {data.map((item) => (
+              <Chip
+                key={item.value}
+                value={item.value}
+                color={color}
+                click={() => onSelect(id, item, data)}
+                isSelected={item.selected}
+              />
             ))}
           </div>
         </article>

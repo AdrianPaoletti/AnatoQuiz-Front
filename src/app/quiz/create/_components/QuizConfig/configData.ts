@@ -5,6 +5,7 @@ export const configData: IConfig[] = [
     id: "subjects",
     title: "Temario",
     description: "Selecciona uno o más temas",
+    color: "orange",
     data: [
       {
         value: "Sistema esquelético",
@@ -52,6 +53,7 @@ export const configData: IConfig[] = [
     id: "lessons",
     title: "Lecciones",
     description: "Selecciona una o más lecciones",
+    color: "blue",
     data: [
       {
         value: "Lección 1",
@@ -87,6 +89,7 @@ export const configData: IConfig[] = [
     id: "questions",
     title: "Número de preguntas",
     description: "Selecciona el numero de preguntas",
+    color: "orange-light",
     data: [
       {
         value: "10",
@@ -110,6 +113,7 @@ export const configData: IConfig[] = [
     id: "time",
     title: "Tiempo",
     description: "Selecciona el tiempo por pregunta",
+    color: "pink",
     data: [
       {
         value: "20 sec",

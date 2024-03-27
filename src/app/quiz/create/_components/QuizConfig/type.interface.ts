@@ -8,6 +8,7 @@ export interface IConfig {
   id: keyof IKeysConfig;
   title: string;
   description: string;
+  color: "orange" | "blue" | "orange-light" | "pink";
   data: IData[];
 }
 

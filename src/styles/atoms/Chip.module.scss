@@ -1,0 +1,57 @@
+@use "../settings/typography";
+@use "../settings/spacing";
+@use "../settings/colors";
+@use "../settings/border";
+.chip {
+    flex-grow:1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1.5px solid;
+    border-radius: border.$radius-xl;
+    transition: all 0.2s;
+    padding: spacing.$xtiny spacing.$xs;
+    font: typography.$b200-regular;
+    margin: spacing.$xtiny;
+    min-width: 60px;
+
+    &--blue {
+        border-color: colors.$blue;
+       
+        &.chip--selected {
+            background-color: colors.$blue;
+        }
+    }
+
+    &--orange {
+        border-color: colors.$orange;
+       
+        &.chip--selected {
+            background-color: colors.$orange;
+        }
+    }
+    
+    &--orange-light {
+        border-color: colors.$secondary-orangeLight;
+       
+        &.chip--selected {
+            background-color: colors.$secondary-orangeLight;
+        }
+
+    }
+
+    &--pink {
+        border-color: colors.$pink;
+        
+        &.chip--selected {
+            background-color: colors.$pink;
+        }
+    }
+
+    &--selected {
+        color: colors.$white;
+        font: typography.$b200-bold;
+    }
+}
