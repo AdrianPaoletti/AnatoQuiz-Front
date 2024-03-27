@@ -4,16 +4,12 @@ import { Button } from "./Button";
 
 import styles from "./Modal.module.scss";
 
-interface ModalProps {
-  innerRefference: any;
-}
-
-export function Modal({ innerRefference }: ModalProps) {
+export function Modal() {
   return (
-    <dialog className={styles.modal} ref={innerRefference}>
+    <div className={styles.modal}>
       <p>Resent!</p>
       <p>An email confirmation have been successfully sent to you</p>
       <Button mode="secondary">Ok</Button>
-    </dialog>
+    </div>
   );
 }

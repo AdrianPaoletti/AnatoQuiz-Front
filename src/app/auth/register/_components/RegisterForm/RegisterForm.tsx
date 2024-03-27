@@ -1,8 +1,11 @@
 "use client";
+
 import { Alert } from "@anatoquiz/src/styles/atoms/Alert";
 import { Button } from "@anatoquiz/src/styles/atoms/Button";
 import { CheckBox } from "@anatoquiz/src/styles/atoms/CheckBox";
 import { Input } from "@anatoquiz/src/styles/atoms/Input";
+import { Modal } from "@anatoquiz/src/styles/atoms/Modal";
+import bcrypt from "bcrypt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,7 +20,7 @@ import styles from "./RegisterForm.module.scss";
 
 export function RegisterForm() {
   const router = useRouter();
-  const { error, setError, postRegister } = useRegisterForm();
+  const { error, setError, putRegister } = useRegisterForm();
   const [formData, setFormData] = useState<FormRegister>({
     username: "",
     email: "",
@@ -39,7 +42,12 @@ export function RegisterForm() {
     const { username, password, email } = formData;
 
     if (!hasErrors()) {
-      postRegister({ username, password, email, id: uuid() });
+      putRegister({
+        username,
+        password: bcrypt.hashSync(password, 10),
+        email,
+        id: uuid(),
+      });
     }
   }
 
@@ -98,6 +106,7 @@ export function RegisterForm() {
       >
         Continue with Google
       </Button>
+      <Modal />
     </form>
   );
 }

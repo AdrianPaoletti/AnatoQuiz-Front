@@ -13,14 +13,14 @@ export default function OnBoarding() {
       <Carousel style={{ flex: 2 }}>
         {onBoardingData.map(({ id, title, subtitle, name }) => (
           <React.Fragment key={id}>
-            <h2 className={styles.onboarding__title}>{title}</h2>
-            <h3 className={styles.onboarding__subtitle}>{subtitle}</h3>
             <Image
               src={`/img/onboarding/${name}.png`}
               alt={`image-${id}`}
               width={300}
               height={300}
             />
+            <h2 className={styles.onboarding__title}>{title}</h2>
+            <h3 className={styles.onboarding__subtitle}>{subtitle}</h3>
           </React.Fragment>
         ))}
       </Carousel>

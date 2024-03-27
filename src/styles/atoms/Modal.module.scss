@@ -5,6 +5,11 @@
   background-color: colors.$white;
   border-radius: border.$radius-default;
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
 
   &::backdrop {
     background-color: colors.$black;
