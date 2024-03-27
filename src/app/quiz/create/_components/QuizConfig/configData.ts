@@ -1,21 +1,49 @@
-import { IConfigData } from "./type.interface";
+import { IConfig } from "./type.interface";
 
-export const configData: IConfigData[] = [
+export const configData: IConfig[] = [
   {
     id: "subjects",
     title: "Temario",
     description: "Selecciona uno o más temas",
     data: [
       {
-        value: "Huesos",
+        value: "Sistema esquelético",
         selected: false,
       },
       {
-        value: "Músculos",
+        value: "Sistema articular",
         selected: false,
       },
       {
-        value: "Articulaciones",
+        value: "Sistema muscular",
+        selected: false,
+      },
+      {
+        value: "Sistema linfático",
+        selected: false,
+      },
+      {
+        value: "Sistema Nervioso",
+        selected: false,
+      },
+      {
+        value: "Cabeza",
+        selected: false,
+      },
+      {
+        value: "Cuello",
+        selected: false,
+      },
+      {
+        value: "Región dorsal del tronco",
+        selected: false,
+      },
+      {
+        value: "Tórax",
+        selected: false,
+      },
+      {
+        value: "Cintura escapular",
         selected: false,
       },
     ],
@@ -23,7 +51,7 @@ export const configData: IConfigData[] = [
   {
     id: "lessons",
     title: "Lecciones",
-    description: "Selecciona uno o más lecciones",
+    description: "Selecciona una o más lecciones",
     data: [
       {
         value: "Lección 1",
@@ -35,6 +63,22 @@ export const configData: IConfigData[] = [
       },
       {
         value: "Lección 3",
+        selected: false,
+      },
+      {
+        value: "Lección 4",
+        selected: false,
+      },
+      {
+        value: "Lección 5",
+        selected: false,
+      },
+      {
+        value: "Lección 6",
+        selected: false,
+      },
+      {
+        value: "Lección 7",
         selected: false,
       },
     ],

@@ -2,19 +2,21 @@
 
 import { Button } from "@anatoquiz/src/styles/atoms/Button";
 import { classNames } from "@anatoquiz/src/styles/shared/classNames";
-import { useState } from "react";
 
 import { configData } from "./configData";
-import { IConfigData } from "./type.interface";
+import { IData, IKeysConfig } from "./type.interface";
+import { useQuizConfig } from "./useQuizConfig";
 
 import styles from "./QuizConfig.module.scss";
 
 export function QuizConfig() {
-  function clickPrueba(
-    id: IConfigData["id"],
-    item: any,
-    data: IConfigData["data"],
-  ): void {
+  const { dataQuiz, setDataQuiz, refetch } = useQuizConfig();
+
+  const isDisabled: boolean = Object.keys(dataQuiz).some(
+    (key) => !dataQuiz[key as keyof IKeysConfig].length,
+  );
+
+  function onSelect(id: keyof IKeysConfig, item: IData, data: IData[]): void {
     const isMultiSelect: boolean = ["lessons", "subjects"].includes(id);
 
     setDataQuiz((prevDataQuiz) => ({
@@ -33,10 +35,6 @@ export function QuizConfig() {
     }
 
     item.selected = !item.selected;
-    // {
-    //   lessonss: [''],
-    //   limit: 2
-    // }
   }
 
   function multiSelect(
@@ -48,18 +46,6 @@ export function QuizConfig() {
       ? dataQuiz[id].filter((item) => item !== value)
       : array.concat(value);
   }
-
-  const [dataQuiz, setDataQuiz] = useState<{
-    lessons: string[];
-    subjects: string[];
-    questions: string;
-    time: string;
-  }>({
-    lessons: [],
-    subjects: [],
-    questions: "", //limit
-    time: "",
-  });
 
   console.log("dataQuiz", dataQuiz);
 
@@ -80,7 +66,7 @@ export function QuizConfig() {
                 )}
                 type="button"
                 key={index}
-                onClick={() => clickPrueba(id, item, data)}
+                onClick={() => onSelect(id, item, data)}
               >
                 {item.value}
               </button>
@@ -89,7 +75,13 @@ export function QuizConfig() {
         </article>
       ))}
       <footer className={styles["quiz-config__footer"]}>
-        <Button type={"button"} mode={"primary"} fullWidth={true}>
+        <Button
+          type={"button"}
+          mode={"primary"}
+          fullWidth={true}
+          disabled={isDisabled}
+          onClick={() => refetch()}
+        >
           Go start
         </Button>
       </footer>

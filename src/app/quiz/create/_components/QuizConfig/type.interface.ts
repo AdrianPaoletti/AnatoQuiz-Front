@@ -1,9 +1,30 @@
-export interface IConfigData {
-  id: "lessons" | "subjects" | "questions" | "time";
+export interface IKeysConfig {
+  lessons: string;
+  subjects: string;
+  questions: string;
+  time: string;
+}
+export interface IConfig {
+  id: keyof IKeysConfig;
   title: string;
   description: string;
-  data: {
-    value: string;
-    selected: boolean;
-  }[];
+  data: IData[];
+}
+
+export interface IData {
+  value: string;
+  selected: boolean;
+}
+
+export interface IDataQuiz {
+  lessons: string[];
+  subjects: string[];
+  questions: string;
+  time: string;
+}
+
+export interface IParamsGetQuestions {
+  lessons: string;
+  subjects?: string;
+  questionsNumber: number;
 }

@@ -23,9 +23,11 @@
 
     &__chips-container {
         display: flex;
+        flex-wrap: wrap;
     }
 
     &__chip {
+        flex-grow:1;
         display: inline-flex;
         align-items: center;
         justify-content: center;
