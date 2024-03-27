@@ -19,7 +19,7 @@ export function Alert({ text, type, onClose }: AlertProps) {
   const [firstLoad, setFirstLoad] = useState<boolean>(true);
 
   function handleClick(): void {
-    close();
+    onClose();
     setFirstLoad(false);
   }
 

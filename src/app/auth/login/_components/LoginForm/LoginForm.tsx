@@ -77,7 +77,7 @@ export function LoginForm() {
         <Alert
           text={error.text}
           type={"error"}
-          close={() => setError({ ...error, text: "" })}
+          onClose={() => setError({ ...error, text: "" })}
         />
       )}
       <div className={styles["login-form__fields"]}>
