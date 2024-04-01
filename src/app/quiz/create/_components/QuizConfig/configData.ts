@@ -1,4 +1,6 @@
 import { IConfig } from "./type.interface";
+import { v4 as uuid } from "uuid";
+
 
 export const configData: IConfig[] = [
   {
@@ -8,44 +10,44 @@ export const configData: IConfig[] = [
     color: "orange",
     data: [
       {
-        value: "Sistema esquelético",
-        selected: false,
+        label: "Sistema esquelético",
+        value: uuid(),
       },
       {
-        value: "Sistema articular",
-        selected: false,
+        label: "Sistema articular",
+        value: uuid(),
       },
       {
-        value: "Sistema muscular",
-        selected: false,
+        label: "Sistema muscular",
+        value: uuid(),
       },
       {
-        value: "Sistema linfático",
-        selected: false,
+        label: "Sistema linfático",
+        value: uuid(),
       },
       {
-        value: "Sistema Nervioso",
-        selected: false,
+        label: "Sistema Nervioso",
+        value: uuid(),
       },
       {
-        value: "Cabeza",
-        selected: false,
+        label: "Cabeza",
+        value: uuid(),
       },
       {
-        value: "Cuello",
-        selected: false,
+        label: "Cuello",
+        value: uuid(),
       },
       {
-        value: "Región dorsal del tronco",
-        selected: false,
+        label: "Región dorsal del tronco",
+        value: uuid(),
       },
       {
-        value: "Tórax",
-        selected: false,
+        label: "Tórax",
+        value: uuid(),
       },
       {
-        value: "Cintura escapular",
-        selected: false,
+        label: "Cintura escapular",
+        value: uuid(),
       },
     ],
   },
@@ -56,32 +58,32 @@ export const configData: IConfig[] = [
     color: "blue",
     data: [
       {
-        value: "Lección 1",
-        selected: false,
+        label: "Lección 1",
+        value: "Lesson 1",
       },
       {
-        value: "Lección 2",
-        selected: false,
+        label: "Lección 2",
+        value: "Lesson 2",
       },
       {
-        value: "Lección 3",
-        selected: false,
+        label: "Lección 3",
+        value: "Lesson 3",
       },
       {
-        value: "Lección 4",
-        selected: false,
+        label: "Lección 4",
+        value: "Lesson 4",
       },
       {
-        value: "Lección 5",
-        selected: false,
+        label: "Lección 5",
+        value: "Lesson 5",
       },
       {
-        value: "Lección 6",
-        selected: false,
+        label: "Lección 6",
+        value: "Lesson 6",
       },
       {
-        value: "Lección 7",
-        selected: false,
+        label: "Lección 7",
+        value: "Lesson 7",
       },
     ],
   },
@@ -92,20 +94,20 @@ export const configData: IConfig[] = [
     color: "orange-light",
     data: [
       {
+        label: "10",
         value: "10",
-        selected: false,
       },
       {
+        label: "20",
         value: "20",
-        selected: false,
       },
       {
+        label: "30",
         value: "30",
-        selected: false,
       },
       {
+        label: "40",
         value: "40",
-        selected: false,
       },
     ],
   },
@@ -116,20 +118,20 @@ export const configData: IConfig[] = [
     color: "pink",
     data: [
       {
-        value: "20 sec",
-        selected: false,
+        label: "20 sec",
+        value: uuid(),
       },
       {
-        value: "40 secs",
-        selected: false,
+        label: "40 secs",
+        value: uuid(),
       },
       {
-        value: "1 min",
-        selected: false,
+        label: "1 min",
+        value: uuid(),
       },
       {
-        value: "2 min",
-        selected: false,
+        label: "2 min",
+        value: uuid(),
       },
     ],
   },

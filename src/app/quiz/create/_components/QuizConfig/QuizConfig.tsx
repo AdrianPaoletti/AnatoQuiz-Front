@@ -16,25 +16,19 @@ export function QuizConfig() {
     (key) => !dataQuiz[key as keyof IKeysConfig].length,
   );
 
-  function onSelect(id: keyof IKeysConfig, item: IData, data: IData[]): void {
+  function onSelectChips(id: keyof IKeysConfig, item: IData, data: IData[]): void {
     const isMultiSelect: boolean = ["lessons", "subjects"].includes(id);
-
+  
     setDataQuiz((prevDataQuiz) => ({
       ...prevDataQuiz,
       [id]: isMultiSelect
-        ? multiSelect(
-            id as "lessons" | "subjects",
-            item.value,
-            prevDataQuiz[id] as string[],
-          )
-        : item.value,
+            ? multiSelect(
+                id as "lessons" | "subjects",
+                item.value,
+                prevDataQuiz[id] as string[],
+              )
+            : item.value,
     }));
-
-    if (!isMultiSelect) {
-      data.map((itemData) => (itemData.selected = false)); // esto no se si es bien
-    }
-
-    item.selected = !item.selected;
   }
 
   function multiSelect(
@@ -47,8 +41,6 @@ export function QuizConfig() {
       : array.concat(value);
   }
 
-  console.log("dataQuiz", dataQuiz);
-
   return (
     <section className={styles["quiz-config"]}>
       {configData.map(({ id, title, description, color, data }) => (
@@ -60,10 +52,10 @@ export function QuizConfig() {
             {data.map((item) => (
               <Chip
                 key={item.value}
-                value={item.value}
+                value={item.label}
                 color={color}
-                click={() => onSelect(id, item, data)}
-                isSelected={item.selected}
+                click={() => onSelectChips(id, item, data)}
+                isSelected={dataQuiz[id].includes(item.value)}
               />
             ))}
           </div>

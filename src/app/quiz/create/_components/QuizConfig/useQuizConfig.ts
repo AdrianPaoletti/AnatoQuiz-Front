@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+
 import {
   IDataQuiz,
   IParamsGetQuestions,
@@ -15,33 +16,36 @@ export function useQuizConfig(): IUseQuizConfig {
   const [dataQuiz, setDataQuiz] = useState<IDataQuiz>({
     lessons: [],
     subjects: [],
-    questions: "", //limit
+    questions: "",
     time: "",
   });
+  const { data: questions, refetch } = useQuery({
+    queryKey: ["questions"],
+    queryFn: () => onGetQuestions(),
+    enabled: false,
+    retry: false,
+  });
 
-  async function onGoStart(): Promise<IQuestionsResponse> {
-    // const newParams: IParamsGetQuestions = {
-    //   lessons: [...dataQuiz.lessons],
-    //   subjects: [...dataQuiz.subjects],
-    //   questionsNumber: parseInt(dataQuiz.questions),
-    // };
+  async function onGetQuestions(): Promise<IQuestionsResponse> {
     const newParams: IParamsGetQuestions = {
+      lessons: JSON.stringify([...dataQuiz.lessons]),
+      subjects: JSON.stringify([...dataQuiz.subjects]),
+      questionsNumber: parseInt(dataQuiz.questions),
+    };
+
+    const newParamsFAKE: IParamsGetQuestions = {
       lessons: JSON.stringify(["1", "3"]),
       questionsNumber: 1,
     };
 
-    return getQuestionsFetch(newParams).then((questions) => {
+    // @TODO -> Cuando back esté preparado eliminar newParamsFAKE, y substituir por newParams
+    return getQuestionsFetch(newParamsFAKE).then((questions) => {
+      // @TODO -> Cambiar url a /quiz/play cuando exista
       router.push("/auth/login");
 
       return questions;
     });
   }
-  const { data: questions, refetch } = useQuery({
-    queryKey: ["questions"],
-    queryFn: () => onGoStart(),
-    enabled: false,
-    retry: false,
-  });
 
   return { dataQuiz, setDataQuiz, refetch };
 }

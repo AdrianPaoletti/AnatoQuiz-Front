@@ -12,7 +12,7 @@ export async function getQuestionsFetch(
       params,
       headers: {
         Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0ZTZiMzMxLTE3MjItNDRkYy1hNDg5LTRiMmQ0OWVlYzUxYyIsImlhdCI6MTcxMTM5MDgzMywiZXhwIjoxNzExOTk1NjMzfQ.owxcvcd8w3FcZ15FUEjMuwvtoUHPlwNQpA-Mh3Ityc8",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0ZTZiMzMxLTE3MjItNDRkYy1hNDg5LTRiMmQ0OWVlYzUxYyIsImlhdCI6MTcxMTk5NjM0NSwiZXhwIjoxNzEyNjAxMTQ1fQ.dS7p4b54vb7td2GAeUc77CRkcmZ0VoWQLoYMZLVUGww",
       },
     })
     .then((response) => {
@@ -21,6 +21,7 @@ export async function getQuestionsFetch(
       }
     })
     .catch((error) => {
+      // @TODO -> Falta gestionar error del getQuestions
       console.log("errror", error);
     });
 }

@@ -18,7 +18,7 @@ export interface IConfig {
 
 export interface IData {
   value: string;
-  selected: boolean;
+  label: string;
 }
 
 export interface IDataQuiz {
