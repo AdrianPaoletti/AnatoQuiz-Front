@@ -1,6 +1,6 @@
-import { IConfig } from "./type.interface";
 import { v4 as uuid } from "uuid";
 
+import { IConfig } from "./type.interface";
 
 export const configData: IConfig[] = [
   {
