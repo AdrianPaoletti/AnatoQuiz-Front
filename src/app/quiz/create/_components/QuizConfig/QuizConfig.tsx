@@ -16,18 +16,22 @@ export function QuizConfig() {
     (key) => !dataQuiz[key as keyof IKeysConfig].length,
   );
 
-  function onSelectChips(id: keyof IKeysConfig, item: IData, data: IData[]): void {
+  function onSelectChips(
+    id: keyof IKeysConfig,
+    item: IData,
+    data: IData[],
+  ): void {
     const isMultiSelect: boolean = ["lessons", "subjects"].includes(id);
-  
+
     setDataQuiz((prevDataQuiz) => ({
       ...prevDataQuiz,
       [id]: isMultiSelect
-            ? multiSelect(
-                id as "lessons" | "subjects",
-                item.value,
-                prevDataQuiz[id] as string[],
-              )
-            : item.value,
+        ? multiSelect(
+            id as "lessons" | "subjects",
+            item.value,
+            prevDataQuiz[id] as string[],
+          )
+        : item.value,
     }));
   }
 
