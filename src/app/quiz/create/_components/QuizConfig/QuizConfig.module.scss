@@ -1,0 +1,33 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+@use "src/styles/settings/border";
+
+.quiz-config {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__content {
+        margin-bottom: spacing.$lg;
+    }
+
+    &__title {
+        font: typography.$sm-h100-bold;
+    }
+
+    &__description {
+        font: typography.$b200-regular;
+        margin-bottom: spacing.$xxs;
+    }
+
+    &__chips-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__footer {
+        margin-top: auto;
+    }
+}
+
