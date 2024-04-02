@@ -1,0 +1,67 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+@use "src/styles/settings/border";
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    padding: spacing.$xs;
+    position: relative;
+    border-radius: border.$radius-md;
+    margin-bottom: spacing.$lg;
+    background: rgb(242,163,159);
+    background: linear-gradient(183deg, rgba(243,196,218,0.3379945728291317) 4%,  rgba(242,163,159,0.6349133403361344) 70%);
+
+    &::before {
+        content: "";
+        position: absolute;
+        border: 20px solid;
+        right: auto;
+        bottom: -40px;
+
+        border-top-color:  rgba(242,163,159,0.6349133403361344);
+        border-right-color: transparent;
+        border-bottom-color:transparent;
+        border-left-color: transparent;
+    }
+
+    &__text{
+        font: typography.$b300-bold;
+    }
+}
+
+.answer {
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: border.$radius-sm;
+    transition: all 0.2s;
+    padding: spacing.$xs;
+    margin: spacing.$xtiny;
+    min-height: 70px;
+
+    &--0 {
+        background-color: #f172529d;
+        border-color: colors.$orange;
+    }
+
+    &--1 {
+        background-color: #f3c4dac3;
+        border-color: colors.$pink;
+    }
+    
+    &--2 {
+        background-color: #2254a57f;
+        border-color: colors.$blue;
+    }
+
+    &--3 {
+        background-color: #f2a39fbf;
+        border-color:colors.$secondary-orangeLight
+    }
+
+    &__text {
+        font: typography.$b200-regular;
+    }
+}

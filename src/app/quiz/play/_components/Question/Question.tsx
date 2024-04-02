@@ -1,19 +1,23 @@
-export default function Question({
-  question,
-  answers,
-  click,
-}: {
-  question: string;
-  answers: { id: string; answer: string }[];
-  click: () => void;
-}) {
+import { classNames } from "@anatoquiz/src/styles/shared/classNames";
+
+import { IQuestionProps } from "../../type";
+
+import styles from "./Question.module.scss";
+
+export default function Question({ question, answers, click }: IQuestionProps) {
   return (
     <>
-      <div>{question}</div>
+      <section className={styles["question"]}>
+        <p className={styles["question__text"]}>{question}</p>
+      </section>
       {answers.map((answer, index) => (
-        <button key={answer.id} onClick={click}>
-          <p>Numero {index}:</p>
-          <p>{answer.answer}</p>
+        <button
+          className={classNames(styles["answer"], styles[`answer--${index}`])}
+          key={answer.id}
+          onClick={() => click(answer.id)}
+        >
+          {/* <p className={styles["answer__number"]}>Numero {index}</p> */}
+          <p className={styles["answer__text"]}>{answer.answer}</p>
         </button>
       ))}
     </>

@@ -1,0 +1,10 @@
+@use "src/styles/settings/typography";
+
+.quiz-play {
+    &__close {
+        border: none;
+        background-color: transparent;
+        margin-top: auto;
+        font: typography.$sm-h100-bold;
+    }
+}
