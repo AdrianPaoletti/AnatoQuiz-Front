@@ -10,6 +10,8 @@ $_primary-blueDark: #29416c;
 $secondary-orange: #f17152;
 $secondary-orangeLight: #f2a39f;
 $_secondary-pink: #f3c4da;
+$_secondary-green: #82be58;
+$_secondary-greenLight: #edf6e6;
 
 $white: $_primary-white;
 $black: $_primary-black;
@@ -19,6 +21,8 @@ $orange: $secondary-orange;
 $gray: $_primary-gray;
 $disabled: $_primary-grayLight;
 $error: $_secondary-error;
+$success: $_secondary-green;
+$bg-success: $_secondary-greenLight;
 
 $link-color: $_secondary-blue;
 

@@ -1,0 +1,20 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+@use "src/styles/settings/border";
+
+.counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: spacing.$tiny;
+
+    &__number {
+        font: typography.$b200-regular;
+    }
+
+    &--current {
+        font: typography.$b500-bold;
+        color: colors.$orange;
+    }
+}

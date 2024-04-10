@@ -1,0 +1,97 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+@use "src/styles/settings/border";
+.question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+    padding: spacing.$xs;
+    position: relative;
+    border-radius: border.$radius-md;
+    margin-bottom: spacing.$lg;
+    background-color: colors.$black;
+
+    &::before {
+        content: "";
+        position: absolute;
+        border: 20px solid;
+        right: auto;
+        bottom: -40px;
+        border-top-color:  colors.$black;
+        border-right-color: transparent;
+        border-bottom-color:transparent;
+        border-left-color: transparent;
+    }
+
+    &__text {
+        font: typography.$b300-bold;
+        color:colors.$white
+    }
+}
+
+.answer {
+    background-color: transparent;
+    border-radius: border.$radius-sm;
+    transition: all 0.2s;
+    padding: spacing.$xs;
+    margin: spacing.$xtiny;
+    min-height: 70px;
+    border: 1px solid;
+    border-bottom: 4px solid;
+    border-right: 4px solid;
+
+    &__text {
+        font: typography.$b200-regular;
+    }
+
+    &--0 {
+        background-color: #f1725284;
+        border-color: colors.$orange;
+
+        &.answer--selected {
+            background-color: colors.$orange;
+            color: colors.$white;
+        }
+    }
+
+    &--1 {
+        background-color: #f3c4da9f;
+        border-color: colors.$pink;
+
+        &.answer--selected {
+            background-color: colors.$pink;
+        }
+    }
+    
+    &--2 {
+        background-color: #2254a57f;
+        border-color: #2254a599;
+
+        &.answer--selected {
+            background-color: colors.$blue;
+            color: colors.$white;
+        }
+    }
+
+    &--3 {
+        background-color: #f2a39f90;
+        border-color:colors.$secondary-orangeLight;
+
+        &.answer--selected {
+            background-color: colors.$secondary-orangeLight;
+        }
+    }
+
+    &--selected {
+        border: 2px solid;
+        border-bottom: 5px solid;
+        border-right: 5px solid;
+        border-color: colors.$black;
+
+        .answer__text {
+            font: typography.$b300-bold;
+        }
+    }
+}

@@ -22,6 +22,7 @@ export interface ButtonProps {
   fullWidth?: boolean;
   icon?: Icons;
   children: string;
+  bottom?: boolean;
 }
 
 interface Overload {
@@ -37,6 +38,7 @@ export const Button: Overload = ({
   size = "large",
   fullWidth = false,
   icon,
+  bottom = false,
   ...props
 }) => {
   const componentProps = {
@@ -45,6 +47,7 @@ export const Button: Overload = ({
       styles[`btn--${mode}`],
       styles[`btn--${size}`],
       { [styles[`btn--full-width`]]: fullWidth },
+      { [styles[`btn--bottom`]]: bottom },
     ),
     ...props,
   };

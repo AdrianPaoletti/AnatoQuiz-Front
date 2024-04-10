@@ -39,8 +39,8 @@ export function useQuizConfig(): IUseQuizConfig {
 
     // @TODO -> Cuando back esté preparado eliminar newParamsFAKE, y substituir por newParams
     return getQuestionsFetch(newParamsFAKE).then((questions) => {
-      // @TODO -> Cambiar url a /quiz/play cuando exista
-      router.push("/auth/login");
+      console.log(questions);
+      router.push("/quiz/play");
 
       return questions;
     });
