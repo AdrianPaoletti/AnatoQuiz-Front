@@ -4,22 +4,25 @@ import { ICurrentQuestion, IUseQuizQuestions } from "../../type";
 
 import { questionsData } from "./questionsData";
 
-export function useQuizQuestion(): IUseQuizQuestions {
+export function useQuestionsList(): IUseQuizQuestions {
   const [numberQuestion, setNumberQuestion] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<ICurrentQuestion>({
-    id: "",
-    question: "",
-    answers: [],
-    correctAnswer: "",
+    currentIdQuestion: "",
+    currentQuestion: "",
+    currentAnswers: [],
+    currentCorrectAnswer: "",
   });
 
   useEffect(() => {
+    const { id, question, answers, correctAnswer } =
+      questionsData[numberQuestion];
+
     setCurrentQuestion((prevCurrentQuestion) => ({
       ...prevCurrentQuestion,
-      id: questionsData[numberQuestion].id,
-      question: questionsData[numberQuestion].question,
-      answers: questionsData[numberQuestion].answers,
-      correctAnswer: questionsData[numberQuestion].corretAnswer,
+      currentIdQuestion: id,
+      currentQuestion: question,
+      currentAnswers: answers,
+      currentCorrectAnswer: correctAnswer,
     }));
   }, [numberQuestion]);
 

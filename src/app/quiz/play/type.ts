@@ -1,25 +1,27 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface IQuestionProps {
-  question: string;
-  answers: { id: string; answer: string }[];
-  click: (idAnswer: string) => void;
-}
-
 export interface ICurrentQuestion {
-  id: string;
-  question: string;
-  answers: { id: string; answer: string }[];
-  correctAnswer: string;
+  currentIdQuestion: string;
+  currentQuestion: string;
+  currentAnswers: { id: string; answer: string }[];
+  currentCorrectAnswer: string;
 }
 
 export interface IQuizResult {
+  question: string;
+  answerSelected: string;
   idQuestion: string;
-  idAnswer: string;
+  correctAnswer: string;
+  isCorrect: boolean;
 }
 
 export interface IUseQuizQuestions {
   numberQuestion: number;
   setNumberQuestion: Dispatch<SetStateAction<number>>;
   currentQuestion: ICurrentQuestion;
+}
+
+export interface IAnswerSelected {
+  answerSelected: string;
+  idAnswerSelected: string;
 }

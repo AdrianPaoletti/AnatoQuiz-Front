@@ -15,24 +15,6 @@
 
     &--current {
         font: typography.$b500-bold;
-        color: colors.$blue;
-    }
-}
-
-.stepper {
-    width: 50%;
-    display: flex;
-    height: 7px;
-    border-radius: border.$radius-sm;
-    background-color: colors.$cta-disabled;
-    align-self: center;
-    overflow: hidden;
-
-    &__step {
-        flex-grow: 1;
-
-        &--color {
-            background-color: colors.$blue;
-        }
+        color: colors.$orange;
     }
 }

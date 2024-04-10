@@ -1,0 +1,61 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+@use "src/styles/settings/border";
+.score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:  spacing.$xs;
+
+    &__text {
+        font: typography.$b200-regular;
+        &--value {
+            font: typography.$b300-bold;
+            margin-left: spacing.$xtiny;
+        }
+    }
+}
+
+.results {
+    list-style: none;
+    padding: 0; 
+
+    &__card {
+        border: 1px solid colors.$success;
+        background-color: colors.$bg-success;
+        margin-bottom: spacing.$xxs;
+        border-radius: border.$radius-sm;
+        padding: spacing.$xs;
+        position: relative;
+
+        &--error {
+            border: 1px solid colors.$error;
+            background-color: colors.$alert-error;
+        }
+
+    }
+
+    &__icon {
+        position: absolute;
+        top: spacing.$xtiny;
+        right: spacing.$xtiny;
+    }
+
+    &__questions {
+        font: typography.$b300-bold;
+        border-bottom: 1px solid colors.$gray;
+        padding-bottom: spacing.$xxs;
+        margin-bottom: spacing.$xxs;
+    }
+
+    &__answer {
+        font: typography.$b200-regular;
+
+        &--error {
+            font: typography.$b100-bold;
+            color: colors.$error;
+            font-style: italic;
+        }
+    }
+}

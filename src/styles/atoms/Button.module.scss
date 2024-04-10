@@ -47,7 +47,22 @@
     background: colors.$cta-disabled;
   }
 
+  &--inverted {
+    background-color: transparent;
+    color: colors.$black;
+    font: typography.$sm-h100-bold;
+
+    &:disabled {
+      background-color: transparent;
+      color: colors.$disabled;
+    }
+  }
+
   &--full-width {
     width: 100%;
+  }
+
+  &--bottom {
+    margin-top: auto;
   }
 }

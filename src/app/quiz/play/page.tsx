@@ -1,24 +1,10 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-
-import QuizQuestions from "./_components/QuizQuestions/QuizQuestions";
-
-import styles from "./page.module.scss";
+import QuestionsList from "./_components/QuestionsList/QuestionsList";
 
 export default function QuizPlay() {
-  const router = useRouter();
-
   return (
-    <article className={styles["quiz-play"]}>
+    <article>
       <p>TIMER ---------</p>
-      <QuizQuestions />
-      <button
-        className={styles["quiz-play__close"]}
-        onClick={() => router.push("/quiz/create")}
-      >
-        Salir
-      </button>
+      <QuestionsList />
     </article>
   );
 }

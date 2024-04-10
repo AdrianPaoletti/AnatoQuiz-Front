@@ -26,7 +26,7 @@ export const questionsData: IQuestion[] = [
     ],
     difficulty: 1,
     active: true,
-    corretAnswer: "b22a0f03-9f82-42db-83e8-64afdc48a015",
+    correctAnswer: "b22a0f03-9f82-42db-83e8-64afdc48a015",
   },
   {
     id: "77298a34-928b-4966-90f9-aa599514a9b4",
@@ -53,6 +53,6 @@ export const questionsData: IQuestion[] = [
     ],
     difficulty: 1,
     active: true,
-    corretAnswer: "b22a0f03-9f82-42db-83e8-64afdc48a019",
+    correctAnswer: "b22a0f03-9f82-42db-83e8-64afdc48a019",
   },
 ];

@@ -10,7 +10,7 @@ export interface IQuestion {
   answers: IAnswer[];
   difficulty: number;
   active: boolean;
-  corretAnswer: string;
+  correctAnswer: string;
 }
 
 export interface IAnswer {
