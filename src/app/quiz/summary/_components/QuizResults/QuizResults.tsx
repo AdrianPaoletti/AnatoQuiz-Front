@@ -3,7 +3,9 @@
 import { Icon } from "@anatoquiz/src/styles/atoms/Icon";
 import { classNames } from "@anatoquiz/src/styles/shared/classNames";
 
-import { resultsData, scoreData } from "./resultsData";
+import { useQuizStore } from "../../../useQuizStore";
+
+import { scoreData } from "./resultsData";
 import { useQuizResults } from "./useQuizResults";
 
 import colors from "../../../../../styles/docs/colors.module.scss";
@@ -11,6 +13,8 @@ import styles from "./QuizResults.module.scss";
 
 export default function QuizResults() {
   const { counterScore } = useQuizResults();
+  const quizResult = useQuizStore(({ quizResult }) => quizResult);
+  console.log("asdfasdf", quizResult);
 
   return (
     <section>
@@ -25,7 +29,7 @@ export default function QuizResults() {
         ))}
       </header>
       <ul className={styles["results"]}>
-        {resultsData.map(
+        {quizResult.map(
           ({
             answerSelected,
             question,

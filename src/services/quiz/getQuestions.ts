@@ -12,7 +12,7 @@ export async function getQuestionsFetch(
       params,
       headers: {
         Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0ZTZiMzMxLTE3MjItNDRkYy1hNDg5LTRiMmQ0OWVlYzUxYyIsImlhdCI6MTcxMTk5NjM0NSwiZXhwIjoxNzEyNjAxMTQ1fQ.dS7p4b54vb7td2GAeUc77CRkcmZ0VoWQLoYMZLVUGww",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM0ZTZiMzMxLTE3MjItNDRkYy1hNDg5LTRiMmQ0OWVlYzUxYyIsImlhdCI6MTcxMzAzMzA4MiwiZXhwIjoxNzEzNjM3ODgyfQ.wI-A2sbUclVLtCL-KOSomDw8BnJx0qZUnvQZhB29KqQ",
       },
     })
     .then((response) => {

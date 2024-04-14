@@ -2,10 +2,12 @@
 
 import { Button } from "@anatoquiz/src/styles/atoms/Button";
 import { Stepper } from "@anatoquiz/src/styles/atoms/Stepper";
+import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { IAnswerSelected, IQuizResult } from "../../type";
+import { useQuizStore } from "../../../useQuizStore";
+import { IAnswerSelected } from "../../type";
 import Question from "../Question/Question";
 
 import { questionsData } from "./questionsData";
@@ -15,6 +17,7 @@ import styles from "./QuestionsList.module.scss";
 
 export default function QuestionsList() {
   const router = useRouter();
+  const questionsTry = useQueryClient().getQueryData(["questions"]);
   const {
     currentQuestion: {
       currentIdQuestion,
@@ -30,7 +33,8 @@ export default function QuestionsList() {
       answerSelected: "",
       idAnswerSelected: "",
     });
-  const [quizResult, setQuizResult] = useState<IQuizResult[]>([]);
+  // const [quizResult, setQuizResult] = useState<IQuizResult[]>([]);
+  const setQuizResult = useQuizStore(({ setQuizResult }) => setQuizResult);
 
   function getAnswerSelected(
     idAnswerSelected: string,
@@ -59,16 +63,13 @@ export default function QuestionsList() {
     answerSelected: string,
   ): void {
     const isCorrect: boolean = checkCorrectAnswer(idAnswer);
-    setQuizResult((prevQuizResult) => [
-      ...prevQuizResult,
-      {
-        answerSelected,
-        idQuestion,
-        question,
-        isCorrect,
-        correctAnswer: isCorrect ? "" : getCorrectAnswer(currentCorrectAnswer),
-      },
-    ]);
+    setQuizResult({
+      answerSelected,
+      idQuestion,
+      question,
+      isCorrect,
+      correctAnswer: isCorrect ? "" : getCorrectAnswer(currentCorrectAnswer),
+    });
 
     if (questionsData.length > numberQuestion + 1) {
       setNumberQuestion(numberQuestion + 1);
