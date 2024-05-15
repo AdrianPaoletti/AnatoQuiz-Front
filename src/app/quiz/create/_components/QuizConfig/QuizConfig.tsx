@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@anatoquiz/src/styles/atoms/Button";
-import { Chip } from "@anatoquiz/src/styles/atoms/Chip";
+import { Button } from "@anatoquiz/styles/atoms/Button";
+import { Chip } from "@anatoquiz/styles/atoms/Chip";
 
 import { configData } from "./configData";
 import { IData, IKeysConfig } from "./type.interface";

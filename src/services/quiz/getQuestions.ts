@@ -1,5 +1,5 @@
-import { IParamsGetQuestions } from "@anatoquiz/src/app/quiz/create/_components/QuizConfig/type.interface";
-import { IQuestionsResponse } from "@anatoquiz/src/types/questionsType";
+import { IParamsGetQuestions } from "@anatoquiz/app/quiz/create/_components/QuizConfig/type.interface";
+import { IQuestionsResponse } from "@anatoquiz/types/questionsType";
 import axios from "axios";
 
 const api = process.env.NEXT_PUBLIC_LOCAL;

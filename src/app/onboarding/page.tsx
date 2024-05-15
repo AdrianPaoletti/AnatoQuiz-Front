@@ -1,5 +1,5 @@
-import { Button } from "@anatoquiz/src/styles/atoms/Button";
-import { Carousel } from "@anatoquiz/src/styles/molecules/Carousel";
+import { Button } from "@anatoquiz/styles/atoms/Button";
+import { Carousel } from "@anatoquiz/styles/molecules/Carousel";
 import Image from "next/image";
 import React from "react";
 

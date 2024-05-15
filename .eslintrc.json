@@ -60,8 +60,6 @@
           ["^\\u0000"],
           // Packages: `import fs from "fs";`
           ["^@?\\w"],
-          // Internal packages.
-          ["^(@|@codely)(/.*|$)"],
           // Parent imports. Put `..` last.
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
           // Other relative imports. Put same-folder imports and `.` last.

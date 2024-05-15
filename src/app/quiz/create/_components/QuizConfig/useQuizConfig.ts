@@ -1,5 +1,5 @@
-import { getQuestionsFetch } from "@anatoquiz/src/services/quiz/getQuestions";
-import { IQuestionsResponse } from "@anatoquiz/src/types/questionsType";
+import { getQuestionsFetch } from "@anatoquiz/services/quiz/getQuestions";
+import { IQuestionsResponse } from "@anatoquiz/types/questionsType";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

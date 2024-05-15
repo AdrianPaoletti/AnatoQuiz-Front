@@ -1,4 +1,4 @@
-import { IQuestionsResponse } from "@anatoquiz/src/types/questionsType";
+import { IQuestionsResponse } from "@anatoquiz/types/questionsType";
 import { QueryObserverResult, RefetchOptions } from "@tanstack/react-query";
 import { Dispatch, SetStateAction } from "react";
 

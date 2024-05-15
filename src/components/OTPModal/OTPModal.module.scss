@@ -1,0 +1,54 @@
+@use "src/styles/settings/typography";
+@use "src/styles/settings/spacing";
+@use "src/styles/settings/colors";
+@use "src/styles/settings/border";
+
+.otp {
+  &__title {
+    font: typography.$b500-bold;
+    margin-bottom: spacing.$xxs;
+  }
+
+  &__description {
+    font: typography.$b200-regular;
+
+    &--resend {
+      margin-bottom: spacing.$tiny;
+      text-align: center;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    padding: spacing.$lg 0;
+    gap: spacing.$tiny;
+  }
+
+  &__field {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background: colors.$input-bg;
+    padding: spacing.$sm;
+    border-radius: border.$radius-default;
+    border: none;
+
+    &:focus-visible,
+    &:hover {
+      border: 1px solid black;
+    }
+    &:focus {
+      outline: none;
+    }
+    &[type="number"] {
+      appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        margin: 0;
+        appearance: none;
+      }
+    }
+  }
+}

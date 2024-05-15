@@ -1,15 +1,32 @@
 import React from "react";
 
-import { Button } from "./Button";
+import { classNames } from "../shared/classNames";
+
+import { Backdrop } from "./Backdrop";
 
 import styles from "./Modal.module.scss";
 
-export function Modal() {
+interface ModalProps {
+  children: React.ReactNode;
+  isOpen: boolean;
+}
+
+export function Modal({
+  children,
+  isOpen,
+  ...props
+}: ModalProps & React.StyleHTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={styles.modal}>
-      <p>Resent!</p>
-      <p>An email confirmation have been successfully sent to you</p>
-      <Button mode="secondary">Ok</Button>
-    </div>
+    <Backdrop isOpen={isOpen}>
+      <div
+        className={classNames(styles.modal, {
+          [styles[`modal--open`]]: isOpen,
+          [styles[`modal--close`]]: !isOpen,
+        })}
+        {...props}
+      >
+        {children}
+      </div>
+    </Backdrop>
   );
 }

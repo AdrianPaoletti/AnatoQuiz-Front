@@ -1,0 +1,45 @@
+@use "../settings/colors";
+
+$_animation-duration: 0.2s;
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  background-color: colors.$black;
+  opacity: 0;
+  z-index: -1;
+
+  &--close {
+    animation: fadeOut $_animation-duration ease-out;
+    z-index: 1;
+  }
+
+  &--open {
+    animation: fadeIn $_animation-duration ease-in;
+    opacity: 0.5;
+    z-index: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

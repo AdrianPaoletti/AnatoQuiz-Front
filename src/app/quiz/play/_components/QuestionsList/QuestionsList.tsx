@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@anatoquiz/src/styles/atoms/Button";
-import { Stepper } from "@anatoquiz/src/styles/atoms/Stepper";
+import { Button } from "@anatoquiz/styles/atoms/Button";
+import { Stepper } from "@anatoquiz/styles/atoms/Stepper";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

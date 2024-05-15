@@ -1,15 +1,13 @@
 "use client";
 
-import { Alert } from "@anatoquiz/src/styles/atoms/Alert";
-import { Button } from "@anatoquiz/src/styles/atoms/Button";
-import { CheckBox } from "@anatoquiz/src/styles/atoms/CheckBox";
-import { Input } from "@anatoquiz/src/styles/atoms/Input";
-import { Modal } from "@anatoquiz/src/styles/atoms/Modal";
-import bcrypt from "bcrypt";
+import { OTPModal } from "@anatoquiz/components/OTPModal/OTPModal";
+import { Alert } from "@anatoquiz/styles/atoms/Alert";
+import { Button } from "@anatoquiz/styles/atoms/Button";
+import { CheckBox } from "@anatoquiz/styles/atoms/CheckBox";
+import { Input } from "@anatoquiz/styles/atoms/Input";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { v4 as uuid } from "uuid";
 
 import { getOAuth2 } from "../../../../../services/auth/getGoogleUserInfo";
 import { FormRegister, inputsData } from "../RegisterForm/inputs";
@@ -20,7 +18,8 @@ import styles from "./RegisterForm.module.scss";
 
 export function RegisterForm() {
   const router = useRouter();
-  const { error, setError, putRegister } = useRegisterForm();
+  const { error, setError, postRegister, isModalOpen, setIsModalOpen } =
+    useRegisterForm();
   const [formData, setFormData] = useState<FormRegister>({
     username: "",
     email: "",
@@ -31,6 +30,7 @@ export function RegisterForm() {
   function handleChange({
     target: { id, value },
   }: React.ChangeEvent<HTMLInputElement>): void {
+    setError({ id: error.id, text: "" });
     setFormData((prevFormData) => ({
       ...prevFormData,
       [id as keyof FormRegister]: value,
@@ -39,16 +39,17 @@ export function RegisterForm() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    const { username, password, email } = formData;
+    setIsModalOpen(true);
+    // const { username, password, email } = formData;
 
-    if (!hasErrors()) {
-      putRegister({
-        username,
-        password: bcrypt.hashSync(password, 10),
-        email,
-        id: uuid(),
-      });
-    }
+    // if (!hasErrors()) {
+    //   postRegister({
+    //     username,
+    //     password,
+    //     email,
+    //     id: uuid(),
+    //   });
+    // }
   }
 
   function hasErrors(): boolean {
@@ -74,6 +75,7 @@ export function RegisterForm() {
         type={"error"}
         onClose={() => setError({ id: error.id, text: "" })}
       />
+      <OTPModal isModalOpen={isModalOpen} />
       <div className={styles["register-form__fields"]}>
         {inputsData.map(({ id, label, type }) => (
           <Input
@@ -106,7 +108,6 @@ export function RegisterForm() {
       >
         Continue with Google
       </Button>
-      <Modal />
     </form>
   );
 }

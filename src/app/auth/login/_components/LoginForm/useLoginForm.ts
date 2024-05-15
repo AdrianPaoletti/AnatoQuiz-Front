@@ -1,20 +1,17 @@
-import {
-  getLogin as getLoginFetch,
-  LoginParams,
-} from "@anatoquiz/src/services/auth/getLogin";
-import { AuthFormError } from "@anatoquiz/src/types/authTypes";
+import { getLogin as getLoginFetch } from "@anatoquiz/services/auth/getLogin";
+import { IAuthFormError, ILoginParams } from "@anatoquiz/types/authTypes";
 import { UseMutateFunction, useMutation } from "@tanstack/react-query";
 import router from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
 
-interface UseLoginForm {
-  error: AuthFormError;
-  setError: Dispatch<SetStateAction<AuthFormError>>;
-  getLogin: UseMutateFunction<string, Error, LoginParams, unknown>;
+interface IUseLoginForm {
+  error: IAuthFormError;
+  setError: Dispatch<SetStateAction<IAuthFormError>>;
+  getLogin: UseMutateFunction<string, Error, ILoginParams, unknown>;
 }
 
-export function useLoginForm(): UseLoginForm {
-  const [error, setError] = useState<AuthFormError>({ id: "", text: "" });
+export function useLoginForm(): IUseLoginForm {
+  const [error, setError] = useState<IAuthFormError>({ id: "", text: "" });
 
   const { mutate: getLogin } = useMutation({
     mutationKey: ["user"],

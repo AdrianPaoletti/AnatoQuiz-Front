@@ -1,7 +1,7 @@
 "use client";
 
-import { Icon } from "@anatoquiz/src/styles/atoms/Icon";
-import { classNames } from "@anatoquiz/src/styles/shared/classNames";
+import { Icon } from "@anatoquiz/styles/atoms/Icon";
+import { classNames } from "@anatoquiz/styles/shared/classNames";
 
 import { useQuizStore } from "../../../useQuizStore";
 
@@ -14,7 +14,6 @@ import styles from "./QuizResults.module.scss";
 export default function QuizResults() {
   const { counterScore } = useQuizResults();
   const quizResult = useQuizStore(({ quizResult }) => quizResult);
-  console.log("asdfasdf", quizResult);
 
   return (
     <section>

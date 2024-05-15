@@ -1,9 +1,9 @@
 "use client";
 
-import { Alert } from "@anatoquiz/src/styles/atoms/Alert";
-import { Button } from "@anatoquiz/src/styles/atoms/Button";
-import { CheckBox } from "@anatoquiz/src/styles/atoms/CheckBox";
-import { Input } from "@anatoquiz/src/styles/atoms/Input";
+import { Alert } from "@anatoquiz/styles/atoms/Alert";
+import { Button } from "@anatoquiz/styles/atoms/Button";
+import { CheckBox } from "@anatoquiz/styles/atoms/CheckBox";
+import { Input } from "@anatoquiz/styles/atoms/Input";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

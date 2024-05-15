@@ -1,3 +1,4 @@
+import { IGoogleUserInfo } from "@anatoquiz/types/authTypes";
 import axios from "axios";
 
 export function getOAuth2(url: string): string {
@@ -19,10 +20,12 @@ export function getOAuth2(url: string): string {
   return oauthURL.href;
 }
 
-export async function getGoogleUserInfo(token: string): Promise<any> {
+export async function getGoogleUserInfo(
+  token: string,
+): Promise<IGoogleUserInfo & { token: string }> {
   return axios
     .get("https://www.googleapis.com/oauth2/v2/userinfo", {
       headers: { Authorization: `Bearer ${token}` },
     })
-    .then(({ data }) => data);
+    .then(({ data }) => ({ ...data, token }));
 }

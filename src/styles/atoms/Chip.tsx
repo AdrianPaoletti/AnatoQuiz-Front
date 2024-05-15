@@ -1,4 +1,4 @@
-import { classNames } from "@anatoquiz/src/styles/shared/classNames";
+import { classNames } from "@anatoquiz/styles/shared/classNames";
 
 import styles from "./Chip.module.scss";
 

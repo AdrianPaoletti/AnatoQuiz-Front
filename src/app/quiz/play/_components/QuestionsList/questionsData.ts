@@ -1,4 +1,4 @@
-import { IQuestion } from "@anatoquiz/src/types/questionsType";
+import { IQuestion } from "@anatoquiz/types/questionsType";
 
 export const questionsData: IQuestion[] = [
   {
