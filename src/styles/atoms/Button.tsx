@@ -4,6 +4,7 @@ import React from "react";
 import { classNames } from "../shared/classNames";
 
 import { Icon, Icons } from "./Icon";
+import { Loading } from "./Loading";
 
 import spacing from "../docs/spacing.module.scss";
 import styles from "./Button.module.scss";
@@ -23,6 +24,7 @@ export interface ButtonProps {
   icon?: Icons;
   children: string;
   bottom?: boolean;
+  isLoading?: boolean;
 }
 
 interface Overload {
@@ -39,6 +41,7 @@ export const Button: Overload = ({
   fullWidth = false,
   icon,
   bottom = false,
+  isLoading = false,
   ...props
 }) => {
   const componentProps = {
@@ -48,6 +51,7 @@ export const Button: Overload = ({
       styles[`btn--${size}`],
       { [styles[`btn--full-width`]]: fullWidth },
       { [styles[`btn--bottom`]]: bottom },
+      { [styles[`btn--loading`]]: true },
     ),
     ...props,
   };
@@ -55,8 +59,11 @@ export const Button: Overload = ({
   if (hasHref(componentProps)) {
     return (
       <Link {...componentProps}>
-        {icon && <Icon icon={icon} style={{ paddingRight: spacing.tiny }} />}
-        {props.children}
+        <div className={styles.btn__container}>
+          {icon && <Icon icon={icon} style={{ paddingRight: spacing.tiny }} />}
+          {props.children}
+          {isLoading && <Loading className={styles["btn--loading-element"]} />}
+        </div>
       </Link>
     );
   }
@@ -64,7 +71,10 @@ export const Button: Overload = ({
   return (
     <button {...componentProps}>
       {icon && <Icon icon={icon} style={{ paddingRight: spacing.tiny }} />}
-      {props.children}
+      <div className={styles.btn__container}>
+        {props.children}
+        {isLoading && <Loading className={styles["btn--loading-element"]} />}
+      </div>
     </button>
   );
 };

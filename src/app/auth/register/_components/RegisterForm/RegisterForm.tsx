@@ -20,6 +20,7 @@ export function RegisterForm() {
   const router = useRouter();
   const { error, setError, postRegister, isModalOpen, setIsModalOpen } =
     useRegisterForm();
+
   const [formData, setFormData] = useState<FormRegister>({
     username: "",
     email: "",
@@ -30,7 +31,6 @@ export function RegisterForm() {
   function handleChange({
     target: { id, value },
   }: React.ChangeEvent<HTMLInputElement>): void {
-    setError({ id: error.id, text: "" });
     setFormData((prevFormData) => ({
       ...prevFormData,
       [id as keyof FormRegister]: value,
@@ -39,17 +39,10 @@ export function RegisterForm() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    setIsModalOpen(true);
-    // const { username, password, email } = formData;
 
-    // if (!hasErrors()) {
-    //   postRegister({
-    //     username,
-    //     password,
-    //     email,
-    //     id: uuid(),
-    //   });
-    // }
+    if (!hasErrors()) {
+      setIsModalOpen(true);
+    }
   }
 
   function hasErrors(): boolean {
@@ -75,7 +68,16 @@ export function RegisterForm() {
         type={"error"}
         onClose={() => setError({ id: error.id, text: "" })}
       />
-      <OTPModal isModalOpen={isModalOpen} />
+      {isModalOpen && (
+        <OTPModal
+          isModalOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onChange={(value) => {}}
+          onVerify={() => {}}
+          email={formData.email}
+          subject={"registration"}
+        />
+      )}
       <div className={styles["register-form__fields"]}>
         {inputsData.map(({ id, label, type }) => (
           <Input

@@ -49,8 +49,7 @@
 
   &--inverted {
     background-color: transparent;
-    color: colors.$black;
-    font: typography.$sm-h100-bold;
+    color: colors.$cta-primary;
 
     &:disabled {
       background-color: transparent;
@@ -64,5 +63,15 @@
 
   &--bottom {
     margin-top: auto;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &--loading-element {
+    margin-top: 0.1rem;
+    margin-left: spacing.$tiny;
+    position: absolute;
   }
 }

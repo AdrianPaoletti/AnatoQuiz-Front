@@ -1,5 +1,6 @@
 @use "../settings/colors";
 @use "../settings/border";
+@use "../settings/spacing";
 
 $_animation-duration: 0.1s;
 
@@ -26,6 +27,13 @@ $_animation-duration: 0.1s;
 
   &--close {
     animation: fadeOut $_animation-duration ease-out;
+  }
+
+  &__icon-close {
+    cursor: pointer;
+    min-width: 1.25rem;
+    position: absolute;
+    right: spacing.$sm;
   }
 }
 

@@ -12,16 +12,23 @@
   &__description {
     font: typography.$b200-regular;
 
-    &--resend {
-      margin-bottom: spacing.$tiny;
+    &--mail {
+      font: typography.$b200-regular;
       text-align: center;
+      margin-bottom: spacing.$tiny;
+    }
+
+    &--resend {
+      color: colors.$blue;
+      cursor: pointer;
+      margin-bottom: spacing.$md;
     }
   }
 
   &__form {
     display: flex;
     justify-content: center;
-    padding: spacing.$lg 0;
+    padding-top: spacing.$lg;
     gap: spacing.$tiny;
   }
 
@@ -36,7 +43,7 @@
 
     &:focus-visible,
     &:hover {
-      border: 1px solid black;
+      border: 1px solid colors.$black;
     }
     &:focus {
       outline: none;
@@ -50,5 +57,12 @@
         appearance: none;
       }
     }
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: center;
+    margin-top: spacing.$md;
+    margin-bottom: spacing.$lg;
   }
 }

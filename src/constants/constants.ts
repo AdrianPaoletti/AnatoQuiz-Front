@@ -4,3 +4,5 @@ export const PASSWORD_CHARACTERS = {
   numbers: "0123456789",
   special: "*#",
 };
+
+export const SECONDS_PER_MINUTE = 60;

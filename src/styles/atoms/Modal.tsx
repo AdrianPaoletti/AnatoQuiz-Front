@@ -3,17 +3,20 @@ import React from "react";
 import { classNames } from "../shared/classNames";
 
 import { Backdrop } from "./Backdrop";
+import { Icon } from "./Icon";
 
 import styles from "./Modal.module.scss";
 
 interface ModalProps {
   children: React.ReactNode;
   isOpen: boolean;
+  onClose: () => void;
 }
 
 export function Modal({
   children,
   isOpen,
+  onClose,
   ...props
 }: ModalProps & React.StyleHTMLAttributes<HTMLDivElement>) {
   return (
@@ -25,6 +28,11 @@ export function Modal({
         })}
         {...props}
       >
+        <Icon
+          icon={"cross"}
+          className={styles["modal__icon-close"]}
+          onClick={onClose}
+        />
         {children}
       </div>
     </Backdrop>

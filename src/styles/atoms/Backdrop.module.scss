@@ -11,17 +11,17 @@ $_animation-duration: 0.2s;
   height: 100%;
   background-color: colors.$black;
   opacity: 0;
-  z-index: -1;
+  display: none;
 
   &--close {
     animation: fadeOut $_animation-duration ease-out;
-    z-index: 1;
   }
 
   &--open {
     animation: fadeIn $_animation-duration ease-in;
     opacity: 0.5;
     z-index: 1;
+    display: block;
   }
 }
 
@@ -37,9 +37,11 @@ $_animation-duration: 0.2s;
 @keyframes fadeOut {
   from {
     opacity: 0.5;
+    display: block;
   }
 
   to {
     opacity: 0;
+    display: none;
   }
 }
